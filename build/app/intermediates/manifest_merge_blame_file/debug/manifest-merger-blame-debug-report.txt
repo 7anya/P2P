@@ -1,0 +1,151 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.p2p"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="30" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/debug/AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.BLUETOOTH" />
+15-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-68
+15-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-65
+16    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+16-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-74
+16-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-71
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-76
+17-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-73
+18    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+18-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
+18-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
+19    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+19-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
+19-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
+20-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-76
+21
+22    <uses-feature android:name="android.hardware.wifi.direct" />
+22-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-65
+22-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:15:19-62
+23
+24    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+24-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:17:5-81
+24-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:17:22-78
+25    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+25-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:18:5-79
+25-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:18:22-76
+26    <uses-permission android:name="android.permission.WAKE_LOCK" />
+26-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:19:5-68
+26-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:19:22-65
+27    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+27-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:20:5-77
+27-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:20:22-74
+28
+29    <application
+29-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:3:4-40:19
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.5.0-beta03] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/e84a0282135a0fb23f2a3e862bdf7534/core-1.5.0-beta03/AndroidManifest.xml:24:18-86
+31        android:debuggable="true"
+32        android:icon="@mipmap/ic_launcher"
+32-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:5:9-43
+33        android:label="p2p" >
+33-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:4:9-28
+34        <activity
+34-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:6:9-34:20
+35            android:name="com.example.p2p.MainActivity"
+35-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:7:13-41
+36            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:10:13-163
+37            android:hardwareAccelerated="true"
+37-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:11:13-47
+38            android:launchMode="singleTop"
+38-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:8:13-43
+39            android:theme="@style/LaunchTheme"
+39-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:9:13-47
+40            android:windowSoftInputMode="adjustResize" >
+40-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:12:13-55
+41
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+48-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:17:13-20:17
+49                android:name="io.flutter.embedding.android.NormalTheme"
+49-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:18:15-70
+50                android:resource="@style/NormalTheme" />
+50-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:19:15-52
+51            <!--
+52                 Displays an Android View that continues showing the launch screen
+53                 Drawable until Flutter paints its first frame, then this splash
+54                 screen fades out. A splash screen is useful to avoid any visual
+55                 gap between the end of Android's launch screen and the painting of
+56                 Flutter's first frame.
+57            -->
+58            <meta-data
+58-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:26:13-29:17
+59                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+59-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:27:15-79
+60                android:resource="@drawable/launch_background" />
+60-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:28:15-61
+61
+62            <intent-filter>
+62-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:30:13-33:29
+63                <action android:name="android.intent.action.MAIN" />
+63-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:31:17-68
+63-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:31:25-66
+64
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:32:17-76
+65-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:32:27-74
+66            </intent-filter>
+67        </activity>
+68        <!--
+69             Don't delete the meta-data below.
+70             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+71        -->
+72        <meta-data
+72-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:37:9-39:33
+73            android:name="flutterEmbedding"
+73-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:38:13-44
+74            android:value="2" />
+74-->/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/AndroidManifest.xml:39:13-30
+75
+76        <service
+76-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:23:9-26:39
+77            android:name="com.nankai.flutter_nearby_connections.NearbyService"
+77-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-79
+78            android:enabled="true"
+78-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:25:13-35
+79            android:exported="true" />
+79-->[:flutter_nearby_connections] /media/tokoyama/Data/Documents/IdeaProjects/p2p/build/flutter_nearby_connections/intermediates/library_manifest/debug/AndroidManifest.xml:26:13-36
+80
+81        <activity
+81-->[com.google.android.gms:play-services-base:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/47c443fe9f250d18a9a4cd44fd0f677d/jetified-play-services-base-17.3.0/AndroidManifest.xml:23:9-26:75
+82            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+82-->[com.google.android.gms:play-services-base:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/47c443fe9f250d18a9a4cd44fd0f677d/jetified-play-services-base-17.3.0/AndroidManifest.xml:24:13-79
+83            android:exported="false"
+83-->[com.google.android.gms:play-services-base:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/47c443fe9f250d18a9a4cd44fd0f677d/jetified-play-services-base-17.3.0/AndroidManifest.xml:25:13-37
+84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+84-->[com.google.android.gms:play-services-base:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/47c443fe9f250d18a9a4cd44fd0f677d/jetified-play-services-base-17.3.0/AndroidManifest.xml:26:13-72
+85
+86        <meta-data
+86-->[com.google.android.gms:play-services-basement:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/ca455f7b1a0447e077897016985d0894/jetified-play-services-basement-17.3.0/AndroidManifest.xml:23:9-25:69
+87            android:name="com.google.android.gms.version"
+87-->[com.google.android.gms:play-services-basement:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/ca455f7b1a0447e077897016985d0894/jetified-play-services-basement-17.3.0/AndroidManifest.xml:24:13-58
+88            android:value="@integer/google_play_services_version" />
+88-->[com.google.android.gms:play-services-basement:17.3.0] /home/tokoyama/.gradle/caches/transforms-2/files-2.1/ca455f7b1a0447e077897016985d0894/jetified-play-services-basement-17.3.0/AndroidManifest.xml:25:13-66
+89    </application>
+90
+91</manifest>
