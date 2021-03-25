@@ -6,11 +6,14 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_nearby_connections/flutter_nearby_connections.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:p2p/ChatPage.dart';
 import './Msg.dart';
 import 'Global.dart';
+
 void main() {
   runApp(MyApp());
 }
+
 // class Conversation{
 //   List <Msg> ListOfMsgs=[];
 //   String deviceId;
@@ -36,9 +39,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     default:
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-            body: Center(
-                child: Text('No route defined for ${settings.name}')),
-          ));
+                body: Center(
+                    child: Text('No route defined for ${settings.name}')),
+              ));
   }
 }
 
@@ -67,9 +70,9 @@ class Home extends StatelessWidget {
                 color: Colors.red,
                 child: Center(
                     child: Text(
-                      'BROWSER',
-                      style: TextStyle(color: Colors.white, fontSize: 40),
-                    )),
+                  'BROWSER',
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                )),
               ),
             ),
           ),
@@ -82,9 +85,9 @@ class Home extends StatelessWidget {
                 color: Colors.green,
                 child: Center(
                     child: Text(
-                      'ADVERTISER',
-                      style: TextStyle(color: Colors.white, fontSize: 40),
-                    )),
+                  'ADVERTISER',
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                )),
               ),
             ),
           ),
@@ -112,7 +115,7 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
   // StreamSubscription subscription;
   // StreamSubscription receivedDataSubscription;
   // List<Msg> messages =[Msg("1","test","sent"),Msg("2","test2","sent")];
- Map <String,Conversation> conversations;
+  Map<String, Conversation> conversations;
   bool isInit = false;
 
   @override
@@ -151,19 +154,29 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
                       children: [
                         Expanded(
                             child: GestureDetector(
-                              onTap: () => _onTabItemListener(device,Global.messages),
-                              child: Column(
-                                children: [
-                                  Text(device.deviceName),
-                                  Text(
-                                    getStateName(device.state),
-                                    style: TextStyle(
-                                        color: getStateColor(device.state)),
-                                  ),
-                                ],
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ChatPage(device);
+                                },
                               ),
-                            )),
+                            );
+                          },
+                          // () => _onTabItemListener(device,Global.messages),
+
+                          child: Column(
+                            children: [
+                              Text(device.deviceName),
+                              Text(
+                                getStateName(device.state),
+                                style: TextStyle(
+                                    color: getStateColor(device.state)),
+                              ),
+                            ],
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                          ),
+                        )),
                         // Request connect
                         GestureDetector(
                           onTap: () => _onButtonClicked(device),
@@ -193,22 +206,23 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
                       color: Colors.grey,
                     ),
                     Text("hello"),
-
-                      ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.all(8),
-                          itemCount: Global.messages.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              height: 15,
-                              // color: Colors.amber[colorCodes[index]],
-                              child: Center(child: Text(Global.messages[index].msgtype+":" +Global.messages[index].deviceId + " "+Global.messages[index].message )),
-                            );
-                          }) ,
-
-
-
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(8),
+                        itemCount: Global.messages.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            height: 15,
+                            // color: Colors.amber[colorCodes[index]],
+                            child: Center(
+                                child: Text(Global.messages[index].msgtype +
+                                    ":" +
+                                    Global.messages[index].deviceId +
+                                    " " +
+                                    Global.messages[index].message)),
+                          );
+                        }),
                   ],
                 ),
               );
@@ -257,7 +271,7 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
     }
   }
 
-  _onTabItemListener(Device device,List<Msg> messages) {
+  _onTabItemListener(Device device, List<Msg> messages) {
     if (device.state == SessionState.connected) {
       showDialog(
           context: context,
@@ -276,10 +290,11 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
                 FlatButton(
                   child: Text("Send"),
                   onPressed: () {
-                    Global.nearbyService.sendMessage(
-                        device.deviceId, myController.text);
+                    Global.nearbyService
+                        .sendMessage(device.deviceId, myController.text);
                     setState(() {
-                      messages.add(new Msg(device.deviceId,myController.text,"sent"));
+                      messages.add(
+                          new Msg(device.deviceId, myController.text, "sent"));
                       // conversations[device.deviceId].ListOfMsgs.add(new Msg(device.deviceId,myController.text,"sent"));
                     });
 
@@ -338,39 +353,40 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         });
     Global.subscription =
         Global.nearbyService.stateChangedSubscription(callback: (devicesList) {
-          devicesList?.forEach((element) {
-            print(
-                " deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
+      devicesList?.forEach((element) {
+        print(
+            " deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
 
-            if (Platform.isAndroid) {
-              if (element.state == SessionState.connected) {
-                Global.nearbyService.stopBrowsingForPeers();
-              } else {
-                Global.nearbyService.startBrowsingForPeers();
-              }
-            }
-          });
+        if (Platform.isAndroid) {
+          if (element.state == SessionState.connected) {
+            Global.nearbyService.stopBrowsingForPeers();
+          } else {
+            Global.nearbyService.startBrowsingForPeers();
+          }
+        }
+      });
 
-          setState(() {
-            Global.devices.clear();
-            Global.devices.addAll(devicesList);
-            Global.connectedDevices.clear();
-            Global.connectedDevices.addAll(devicesList
-                .where((d) => d.state == SessionState.connected)
-                .toList());
-          });
-        });
+      setState(() {
+        Global.devices.clear();
+        Global.devices.addAll(devicesList);
+        Global.connectedDevices.clear();
+        Global.connectedDevices.addAll(devicesList
+            .where((d) => d.state == SessionState.connected)
+            .toList());
+      });
+    });
 
     Global.receivedDataSubscription =
         Global.nearbyService.dataReceivedSubscription(callback: (data) {
-          print("dataReceivedSubscription: ${jsonEncode(data)}");
-          Fluttertoast.showToast(msg: jsonEncode(data));
-          var temp= jsonEncode(data);
-          setState(() {
-            Global.messages.add(new Msg(data["deviceId"],data["message"],"received"));
-            // conversations[data["deviceId"]].ListOfMsgs.add(new Msg(data["deviceId"],data["message"],"received"));
-          });
-          print(data["deviceId"]+" herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-        });
+      print("dataReceivedSubscription: ${jsonEncode(data)}");
+      Fluttertoast.showToast(msg: jsonEncode(data));
+      var temp = jsonEncode(data);
+      setState(() {
+        Global.messages
+            .add(new Msg(data["deviceId"], data["message"], "received"));
+        // conversations[data["deviceId"]].ListOfMsgs.add(new Msg(data["deviceId"],data["message"],"received"));
+      });
+      print(data["deviceId"] + " herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+    });
   }
 }

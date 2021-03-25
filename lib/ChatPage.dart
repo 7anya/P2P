@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bubble/bubble.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_nearby_connections/flutter_nearby_connections.dart';
@@ -29,23 +30,39 @@ class _ChatPageState extends State<ChatPage> {
     final myController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: Text('chat Screen'),
+        title: Text('Chat with'+widget.device.deviceName),
       ),
       body:Column(
         children: [
-          ListView.builder(
+          Container(
+            height:350,
+            child:   ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               padding: const EdgeInsets.all(8),
               itemCount:Global.messages.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  height: 15,
+                  height:55,
                   // color: Colors.amber[colorCodes[index]],
-                  child: Center(child: Text(Global.messages[index].msgtype+":" +Global.messages[index].deviceId + " "+Global.messages[index].message )),
+                  child: Global.messages[index].msgtype=='sent'?Bubble(
+                    margin: BubbleEdges.only(top: 10),
+                    nip: BubbleNip.rightTop,
+                    color: Color(0xffd1c4e9),
+                    child: Text(Global.messages[index].msgtype+": "+Global.messages[index].message, textAlign: TextAlign.right),
+                  ):
+                  Bubble(
+                    nip: BubbleNip.leftTop,
+                    color: Color(0xff80DEEA),
+                    margin: BubbleEdges.only(top: 10),
+                    child:  Text(Global.messages[index].msgtype+": "+Global.messages[index].message, ),
+                  ),
+                  // Text(Global.messages[index].msgtype+": "+Global.messages[index].message, ),
                 );
               },
+            ),
           )
+
           ,
           TextField(controller: myController),
           ElevatedButton(
@@ -66,6 +83,7 @@ class _ChatPageState extends State<ChatPage> {
     )
       ;
   }
+
 }
 
 //------------------------- MyApp ----------------------------------
