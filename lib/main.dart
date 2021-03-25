@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:p2p/ChatPage.dart';
 import './Msg.dart';
 import 'Global.dart';
+import 'Conversation.dart';
 
 void main() {
   runApp(MyApp());
@@ -109,13 +110,8 @@ class DevicesListScreen extends StatefulWidget {
 }
 
 class _DevicesListScreenState extends State<DevicesListScreen> {
-  // List<Device> devices = [];
-  // List<Device> connectedDevices = [];
-  // NearbyService nearbyService;
-  // StreamSubscription subscription;
-  // StreamSubscription receivedDataSubscription;
-  // List<Msg> messages =[Msg("1","test","sent"),Msg("2","test2","sent")];
-  Map<String, Conversation> conversations;
+
+
   bool isInit = false;
 
   @override
@@ -271,42 +267,6 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
     }
   }
 
-  _onTabItemListener(Device device, List<Msg> messages) {
-    if (device.state == SessionState.connected) {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            final myController = TextEditingController();
-            return AlertDialog(
-              title: Text("Send message"),
-              content: TextField(controller: myController),
-              actions: [
-                FlatButton(
-                  child: Text("Cancel"),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                FlatButton(
-                  child: Text("Send"),
-                  onPressed: () {
-                    Global.nearbyService
-                        .sendMessage(device.deviceId, myController.text);
-                    setState(() {
-                      messages.add(
-                          new Msg(device.deviceId, myController.text, "sent"));
-                      // conversations[device.deviceId].ListOfMsgs.add(new Msg(device.deviceId,myController.text,"sent"));
-                    });
-
-                    myController.text = '';
-                  },
-                )
-              ],
-            );
-          });
-    }
-  }
-
   int getItemCount() {
     if (widget.deviceType == DeviceType.advertiser) {
       return Global.connectedDevices.length;
@@ -355,8 +315,9 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         Global.nearbyService.stateChangedSubscription(callback: (devicesList) {
       devicesList?.forEach((element) {
         print(
-            " deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
-
+            "deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
+          if(element.state=='SessionState.connected')
+            Global.conversations[element.deviceId]= new Conversation();
         if (Platform.isAndroid) {
           if (element.state == SessionState.connected) {
             Global.nearbyService.stopBrowsingForPeers();
@@ -384,7 +345,9 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
       setState(() {
         Global.messages
             .add(new Msg(data["deviceId"], data["message"], "received"));
-        // conversations[data["deviceId"]].ListOfMsgs.add(new Msg(data["deviceId"],data["message"],"received"));
+        Global.conversations[data["deviceId"]]
+            .ListOfMsgs
+            .add(new Msg(data["deviceId"], data["message"], "received"));
       });
       print(data["deviceId"] + " herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     });
