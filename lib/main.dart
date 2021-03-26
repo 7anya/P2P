@@ -15,18 +15,6 @@ void main() {
   runApp(MyApp());
 }
 
-// class Conversation{
-//   List <Msg> ListOfMsgs=[];
-//   String deviceId;
-//   Conversation();
-// }
-// class Msg {
-//   String deviceId;
-//   String message;
-//   String msgtype;
-//   Msg(this.deviceId,this.message,this.msgtype);
-//
-// }
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
@@ -110,8 +98,6 @@ class DevicesListScreen extends StatefulWidget {
 }
 
 class _DevicesListScreenState extends State<DevicesListScreen> {
-
-
   bool isInit = false;
 
   @override
@@ -316,8 +302,8 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
       devicesList?.forEach((element) {
         print(
             "deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
-          if(element.state=='SessionState.connected')
-            Global.conversations[element.deviceId]= new Conversation();
+        if (element.state == 'SessionState.connected')
+          Global.conversations[element.deviceId] = new Conversation();
         if (Platform.isAndroid) {
           if (element.state == SessionState.connected) {
             Global.nearbyService.stopBrowsingForPeers();
@@ -345,11 +331,9 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
       setState(() {
         Global.messages
             .add(new Msg(data["deviceId"], data["message"], "received"));
-        Global.conversations[data["deviceId"]]
-            .ListOfMsgs
+        Global.conversations[data["deviceId"]].ListOfMsgs
             .add(new Msg(data["deviceId"], data["message"], "received"));
       });
-      print(data["deviceId"] + " herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     });
   }
 }

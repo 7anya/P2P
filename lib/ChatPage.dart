@@ -36,9 +36,10 @@ class _ChatPageState extends State<ChatPage> {
               // reverse: true,
               controller: _scrollController,
               padding: const EdgeInsets.all(8),
-              itemCount: Global
-                  .conversations[widget.device.deviceId]==null?0: Global
-                  .conversations[widget.device.deviceId].ListOfMsgs.length,
+              itemCount: Global.conversations[widget.device.deviceId] == null
+                  ? 0
+                  : Global
+                      .conversations[widget.device.deviceId].ListOfMsgs.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   height: 55,
@@ -88,8 +89,9 @@ class _ChatPageState extends State<ChatPage> {
                 Global.nearbyService
                     .sendMessage(widget.device.deviceId, myController.text);
                 setState(() {
-                  if(Global.conversations[widget.device.deviceId]==null)
-                    Global.conversations[widget.device.deviceId]= new Conversation();
+                  if (Global.conversations[widget.device.deviceId] == null)
+                    Global.conversations[widget.device.deviceId] =
+                        new Conversation();
                   Global.conversations[widget.device.deviceId].ListOfMsgs.add(
                       new Msg(
                           widget.device.deviceId, myController.text, "sent"));

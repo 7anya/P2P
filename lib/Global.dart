@@ -15,5 +15,5 @@ class Global {
     Msg("1", "test", "sent"),
     Msg("2", "test2", "sent")
   ];
-  static Map<String, Conversation> conversations= Map();
+  static Map<String, Conversation> conversations = Map();
 }
