@@ -9,10 +9,9 @@
 - Connect to nearby devices
 - Send messages to multiple devices
 - Normal chat interface built
-
+- Merge functionalities of advertiser and browser
 
 ##ToDo
 
-- Merge functionalities of advertiser and browser
 - design the hop architecture
 - offline storage of undelivered messages

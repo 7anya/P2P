@@ -125,9 +125,10 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         body: ListView.builder(
             itemCount: getItemCount(),
             itemBuilder: (context, index) {
-              final device = widget.deviceType == DeviceType.advertiser
-                  ? Global.connectedDevices[index]
-                  : Global.devices[index];
+              // final device = widget.deviceType == DeviceType.advertiser
+              //     ? Global.connectedDevices[index]
+              //     : Global.devices[index];
+              final device =Global.devices[index];
               return Container(
                 margin: EdgeInsets.all(8.0),
                 child: Column(
@@ -254,11 +255,12 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
   }
 
   int getItemCount() {
-    if (widget.deviceType == DeviceType.advertiser) {
-      return Global.connectedDevices.length;
-    } else {
-      return Global.devices.length;
-    }
+    // if (widget.deviceType == DeviceType.advertiser) {
+    //   return Global.connectedDevices.length;
+    // } else {
+    //   return Global.devices.length;
+    // }
+    return Global.devices.length;
   }
 
   _onButtonClicked(Device device) {
@@ -277,6 +279,16 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         break;
     }
   }
+void startBrowsing () async
+{
+  await Global.nearbyService.stopBrowsingForPeers();
+  await Global.nearbyService.startBrowsingForPeers();
+}
+  void startAdvertising() async
+  {
+    await Global.nearbyService.stopAdvertisingPeer();
+    await Global.nearbyService.startAdvertisingPeer();
+  }
 
   void init() async {
     Global.nearbyService = NearbyService();
@@ -285,16 +297,21 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         strategy: Strategy.P2P_CLUSTER,
         callback: (isRunning) async {
           if (isRunning) {
-            if (widget.deviceType == DeviceType.browser) {
-              await Global.nearbyService.stopBrowsingForPeers();
-              await Global.nearbyService.startBrowsingForPeers();
-            } else {
-              await Global.nearbyService.stopAdvertisingPeer();
-              await Global.nearbyService.startAdvertisingPeer();
+            // if (widget.deviceType == DeviceType.browser) {
+              // await Global.nearbyService.stopAdvertisingPeer();
+              // await Global.nearbyService.startAdvertisingPeer();
 
-              await Global.nearbyService.stopBrowsingForPeers();
-              await Global.nearbyService.startBrowsingForPeers();
-            }
+              // await Global.nearbyService.stopBrowsingForPeers();
+              // await Global.nearbyService.startBrowsingForPeers();
+               startAdvertising();
+               startBrowsing();
+            // } else {
+            //   await Global.nearbyService.stopAdvertisingPeer();
+            //   await Global.nearbyService.startAdvertisingPeer();
+            //
+            //   await Global.nearbyService.stopBrowsingForPeers();
+            //   await Global.nearbyService.startBrowsingForPeers();
+            // }
           }
         });
     Global.subscription =
