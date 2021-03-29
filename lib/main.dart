@@ -16,22 +16,8 @@ void main() {
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case '/':
-      return MaterialPageRoute(builder: (_) => Home());
-    case 'browser':
-      return MaterialPageRoute(
-          builder: (_) => DevicesListScreen(deviceType: DeviceType.browser));
-    case 'advertiser':
-      return MaterialPageRoute(
-          builder: (_) => DevicesListScreen(deviceType: DeviceType.advertiser));
-    default:
-      return MaterialPageRoute(
-          builder: (_) => Scaffold(
-                body: Center(
-                    child: Text('No route defined for ${settings.name}')),
-              ));
-  }
+  return MaterialPageRoute(
+      builder: (_) => DevicesListScreen(deviceType: DeviceType.browser));
 }
 
 class MyApp extends StatelessWidget {
@@ -40,48 +26,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       onGenerateRoute: generateRoute,
       initialRoute: '/',
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, 'browser');
-              },
-              child: Container(
-                color: Colors.red,
-                child: Center(
-                    child: Text(
-                  'BROWSER',
-                  style: TextStyle(color: Colors.white, fontSize: 40),
-                )),
-              ),
-            ),
-          ),
-          Expanded(
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, 'advertiser');
-              },
-              child: Container(
-                color: Colors.green,
-                child: Center(
-                    child: Text(
-                  'ADVERTISER',
-                  style: TextStyle(color: Colors.white, fontSize: 40),
-                )),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -119,16 +63,13 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.deviceType.toString().substring(11).toUpperCase()),
+          title: Text("Available Devices"),
         ),
         backgroundColor: Colors.white,
         body: ListView.builder(
             itemCount: getItemCount(),
             itemBuilder: (context, index) {
-              // final device = widget.deviceType == DeviceType.advertiser
-              //     ? Global.connectedDevices[index]
-              //     : Global.devices[index];
-              final device =Global.devices[index];
+              final device = Global.devices[index];
               return Container(
                 margin: EdgeInsets.all(8.0),
                 child: Column(
@@ -146,8 +87,6 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
                               ),
                             );
                           },
-                          // () => _onTabItemListener(device,Global.messages),
-
                           child: Column(
                             children: [
                               Text(device.deviceName),
@@ -255,11 +194,6 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
   }
 
   int getItemCount() {
-    // if (widget.deviceType == DeviceType.advertiser) {
-    //   return Global.connectedDevices.length;
-    // } else {
-    //   return Global.devices.length;
-    // }
     return Global.devices.length;
   }
 
@@ -279,13 +213,13 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         break;
     }
   }
-void startBrowsing () async
-{
-  await Global.nearbyService.stopBrowsingForPeers();
-  await Global.nearbyService.startBrowsingForPeers();
-}
-  void startAdvertising() async
-  {
+
+  void startBrowsing() async {
+    await Global.nearbyService.stopBrowsingForPeers();
+    await Global.nearbyService.startBrowsingForPeers();
+  }
+
+  void startAdvertising() async {
     await Global.nearbyService.stopAdvertisingPeer();
     await Global.nearbyService.startAdvertisingPeer();
   }
@@ -297,21 +231,8 @@ void startBrowsing () async
         strategy: Strategy.P2P_CLUSTER,
         callback: (isRunning) async {
           if (isRunning) {
-            // if (widget.deviceType == DeviceType.browser) {
-              // await Global.nearbyService.stopAdvertisingPeer();
-              // await Global.nearbyService.startAdvertisingPeer();
-
-              // await Global.nearbyService.stopBrowsingForPeers();
-              // await Global.nearbyService.startBrowsingForPeers();
-               startAdvertising();
-               startBrowsing();
-            // } else {
-            //   await Global.nearbyService.stopAdvertisingPeer();
-            //   await Global.nearbyService.startAdvertisingPeer();
-            //
-            //   await Global.nearbyService.stopBrowsingForPeers();
-            //   await Global.nearbyService.startBrowsingForPeers();
-            // }
+            startAdvertising();
+            startBrowsing();
           }
         });
     Global.subscription =

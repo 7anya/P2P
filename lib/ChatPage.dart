@@ -43,7 +43,6 @@ class _ChatPageState extends State<ChatPage> {
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   height: 55,
-                  // color: Colors.amber[colorCodes[index]],
                   child: Global.conversations[widget.device.deviceId]
                               .ListOfMsgs[index].msgtype ==
                           'sent'
@@ -71,7 +70,6 @@ class _ChatPageState extends State<ChatPage> {
                                     .ListOfMsgs[index].message,
                           ),
                         ),
-                  // Text(Global.messages[index].msgtype+": "+Global.messages[index].message, ),
                 );
               },
             ),
@@ -99,7 +97,6 @@ class _ChatPageState extends State<ChatPage> {
                       _scrollController.position.maxScrollExtent,
                       duration: Duration(milliseconds: 200),
                       curve: Curves.easeInOut);
-                  // conversations[device.deviceId].ListOfMsgs.add(new Message(device.deviceId,myController.text,"sent"));
                 });
               },
               child: Text("send")),
