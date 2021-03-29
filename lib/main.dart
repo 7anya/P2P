@@ -265,7 +265,6 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         Global.nearbyService.dataReceivedSubscription(callback: (data) {
       print("dataReceivedSubscription: ${jsonEncode(data)}");
       Fluttertoast.showToast(msg: jsonEncode(data));
-      var temp = jsonEncode(data);
       setState(() {
         Global.messages
             .add(new Msg(data["deviceId"], data["message"], "received"));

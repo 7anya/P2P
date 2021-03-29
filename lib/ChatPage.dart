@@ -16,20 +16,25 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  bool _active = false;
 
   ScrollController _scrollController = new ScrollController();
 
   Widget build(BuildContext context) {
     final myController = TextEditingController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Chat with ' + widget.device.deviceName),
       ),
-      body: Column(
+
+      body: SingleChildScrollView(
+        reverse: true,
+    child: Padding(
+    padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child:Column(
         children: [
           Container(
-            height: 350,
+            height: MediaQuery.of(context).size.height*.8,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
@@ -93,15 +98,13 @@ class _ChatPageState extends State<ChatPage> {
                   Global.conversations[widget.device.deviceId].ListOfMsgs.add(
                       new Msg(
                           widget.device.deviceId, myController.text, "sent"));
-                  _scrollController.animateTo(
-                      _scrollController.position.maxScrollExtent,
-                      duration: Duration(milliseconds: 200),
-                      curve: Curves.easeInOut);
+
                 });
               },
               child: Text("send")),
         ],
-      ),
+      ),))
     );
-  }
+
+}
 }
