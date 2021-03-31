@@ -115,6 +115,8 @@ There are 6 main parts the above idea can be broken into,
 - Receive messages form mutliple devices
 - Normal chat interface built
  
+ 
+ 
 ### To-Do
 - Each message should be broken into pieces and be able to assemble at destination
 - Design the hop architecture
