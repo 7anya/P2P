@@ -25,15 +25,15 @@ Mentors: Bruno, Thuvarakan
 - Multicast sender
 ## Push gossip protocol
  
-    - When a node receives a message or gossip, it periodically passes it on to other nodes, and that node is said to be infected
-    -  all infected nodes periodically multicast to other nodes
+ - When a node receives a message or gossip, it periodically passes it on to other nodes, and that node is said to be infected
+ -  all infected nodes periodically multicast to other nodes
     
 ## Pull gossip protocol
  
-    - Periodically poll a few randomly selected processes for new multicast messages that you haven't received and gets those messages
-    - If there are multiple such messages, it polls a few of them randomly
+ - Periodically poll a few randomly selected processes for new multicast messages that you haven't received and gets those messages
+ - If there are multiple such messages, it polls a few of them randomly
 ## Hybrid variant
-    - Mix of both push and pull types
+ - Mix of both push and pull types
  
 `The push protocol is lightweight in large groups, spreads quickly and is highly fault-tolerant. Let us see why.`
  
