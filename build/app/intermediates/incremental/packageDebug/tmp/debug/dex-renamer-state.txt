@@ -1,4 +1,4 @@
-#Thu May 20 22:25:39 IST 2021
-base.0=/media/tokoyama/Data/Documents/IdeaProjects/p2p/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Mon May 24 18:55:00 IST 2021
+base.0=/media/tokoyama/Data/Documents/P2P/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

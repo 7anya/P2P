@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/media/tokoyama/Data/Documents/IdeaProjects/p2p/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/media/tokoyama/Data/Documents/P2P/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/media/tokoyama/Data/Documents/IdeaProjects/p2p/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/media/tokoyama/Data/Documents/P2P/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

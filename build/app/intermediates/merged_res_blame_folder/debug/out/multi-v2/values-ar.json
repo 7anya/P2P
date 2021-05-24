@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/media/tokoyama/Data/Documents/IdeaProjects/p2p/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml",
+            "outputFile": "/media/tokoyama/Data/Documents/P2P/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml",
             "map": [
                 {
                     "source": "/home/tokoyama/.gradle/caches/transforms-2/files-2.1/ca455f7b1a0447e077897016985d0894/jetified-play-services-basement-17.3.0/res/values-ar/values.xml",

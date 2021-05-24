@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/media/tokoyama/Data/Documents/IdeaProjects/p2p/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hy/values-hy.xml",
+            "outputFile": "/media/tokoyama/Data/Documents/P2P/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hy/values-hy.xml",
             "map": [
                 {
                     "source": "/home/tokoyama/.gradle/caches/transforms-2/files-2.1/385c903aadc1b057fb9d041efeacc95a/core-1.6.0-beta01/res/values-hy/values-hy.xml",

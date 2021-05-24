@@ -235,6 +235,8 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
     Global.subscription =
         Global.nearbyService.stateChangedSubscription(callback: (devicesList) {
       devicesList?.forEach((element) {
+        if (element.state!=SessionState.connected)
+        _onButtonClicked(element);
         print(
             "deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
         if (element.state == 'SessionState.connected')
