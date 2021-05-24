@@ -15,7 +15,10 @@ int attr fontVariationSettings 0x0
 int attr fontWeight 0x0
 int attr imageAspectRatio 0x0
 int attr imageAspectRatioAdjust 0x0
+int attr nestedScrollViewStyle 0x0
+int attr queryPatterns 0x0
 int attr scopeUris 0x0
+int attr shortcutMatchRequired 0x0
 int attr ttcIndex 0x0
 int color androidx_core_ripple_material_light 0x0
 int color androidx_core_secondary_text_default_material_light 0x0
@@ -208,6 +211,9 @@ int style TextAppearance_Compat_Notification_Time 0x0
 int style TextAppearance_Compat_Notification_Title 0x0
 int style Widget_Compat_NotificationActionContainer 0x0
 int style Widget_Compat_NotificationActionText 0x0
+int[] styleable Capability { 0x0, 0x0 }
+int styleable Capability_queryPatterns 0
+int styleable Capability_shortcutMatchRequired 1
 int[] styleable ColorStateListItem { 0x0, 0x101031f, 0x10101a5 }
 int styleable ColorStateListItem_alpha 0
 int styleable ColorStateListItem_android_alpha 1

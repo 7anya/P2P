@@ -4,7 +4,7 @@
             "outputFile": "/media/tokoyama/Data/Documents/IdeaProjects/p2p/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "/home/tokoyama/.gradle/caches/transforms-2/files-2.1/e84a0282135a0fb23f2a3e862bdf7534/core-1.5.0-beta03/res/values-v21/values-v21.xml",
+                    "source": "/home/tokoyama/.gradle/caches/transforms-2/files-2.1/385c903aadc1b057fb9d041efeacc95a/core-1.6.0-beta01/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
