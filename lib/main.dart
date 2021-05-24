@@ -98,7 +98,7 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
                         )),
                         // Request connect
                         GestureDetector(
-                          onTap: () => _onButtonClicked(device),
+                          onTap: () => _connectToDevice(device),
                           child: Container(
                             margin: EdgeInsets.symmetric(horizontal: 8.0),
                             padding: EdgeInsets.all(8.0),
@@ -194,7 +194,7 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
     return Global.devices.length;
   }
 
-  _onButtonClicked(Device device) {
+  _connectToDevice(Device device) {
     switch (device.state) {
       case SessionState.notConnected:
         Global.nearbyService.invitePeer(
@@ -236,7 +236,7 @@ class _DevicesListScreenState extends State<DevicesListScreen> {
         Global.nearbyService.stateChangedSubscription(callback: (devicesList) {
       devicesList?.forEach((element) {
         if (element.state!=SessionState.connected)
-        _onButtonClicked(element);
+        _connectToDevice(element);
         print(
             "deviceId: ${element.deviceId} | deviceName: ${element.deviceName} | state: ${element.state}");
         if (element.state == 'SessionState.connected')
